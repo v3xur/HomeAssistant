@@ -1,0 +1,67 @@
+esphome:
+  name: environmental
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: “ENTER WIFI NAME”
+  password: “ENTER WIFI PASSWORD”
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "  " 
+    password: "  "
+
+captive_portal:
+
+# Enable logging
+logger:
+  level: debug 
+# Enable Home Assistant API
+api:
+
+ota:
+
+switch:
+  - platform: gpio
+    pin: D4
+    name: "check light 3"
+    inverted: true
+    
+status_led:
+  pin:
+    number: D0
+    inverted: false
+i2c:
+  sda: D5
+  scl: D1
+  scan: True
+  id: bus_a    
+    
+sensor:
+  - platform: ina219
+    i2c_id: bus_a
+    address: 0x40
+    shunt_resistance: 0.1 ohm
+    current:
+      name: "Current"
+      filters:
+      - multiply: -1
+    power:
+      name: "Power"
+    bus_voltage:
+      name: "Bus Voltage"
+    shunt_voltage:
+      name: "Shunt Voltage"
+    max_voltage: 32.0V
+    max_current: 3.2A
+    update_interval: 1s
+    
+  - platform: dht
+    pin: D2
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Humidity"
+    update_interval: 5s
+    model: AUTO_DETECT
