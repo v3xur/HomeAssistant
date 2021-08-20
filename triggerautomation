@@ -1,0 +1,34 @@
+
+Trigger Type: Numeric_State
+Entity: sensor.temperature
+Below: 76.6
+
+Trigger Type: Numeric_State
+
+Entity: sensor.temperature
+
+Above: 78
+
+
+Action Type: Call Service
+Service: notify.mobile_app_iphone
+
+Service Data
+{ "data": { "push": { "badge": 5 } }, "message": "Check the temperature!", "title": "Room Temperature Alert" } 
+
+Trigger Type: Numeric_State
+Entity: sensor.temperature
+Below: 76.6
+
+Trigger Type: Numeric_State
+
+Entity: sensor.temperature
+
+Above: 78
+
+
+Action Type: Call Service
+Service: notify.mobile_app_iphone
+
+Service Data
+{ "data": { "push": { "badge": 5 } }, "message": "Check the temperature!", "title": "Room Temperature Alert" } 
