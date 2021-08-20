@@ -1,5 +1,5 @@
 # HomeAssistant
- Scalable design to measure Temperature/Humidity and energy consumption of a device with YAML using Home Assistant OS. Numerical values in the code are dependent on design specs.
+ Scalable design to measure Temperature/Humidity and energy consumption of a device with YAML using Home Assistant OS. Numerical values in the code are dependent on design specs and hardware configuration.
  If the tempperature or humidity falls out of a set threshold, the user will be alerted with a mobile push notification.
 Hardware used:
 1. ESP8266 microcontroller
